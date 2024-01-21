@@ -5,7 +5,7 @@ import { formatPrice } from "@/lib/format";
 
 
 export const metadata = {
-    title: "Your-cart @Sanivari"
+    title: "Your-cart @FlipZon"
 }
 
 export default async function CartPage(){

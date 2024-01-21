@@ -27,8 +27,8 @@ export default async function Navbar() {
             <div className="navbar max-w-7xl m-uto flex-col sm:flex-row gap-2">
                 <div className="flex-1">
                     <Link href="/" className="btn btn-ghost text-xl normal-case">
-                        <Image src={logo} height={40} width={40} alt="Sanivari-logo" />
-                        SANIVARI
+                        <Image src={logo} height={40} width={40} alt="Flipzon-logo" />
+                        FlipZon
                     </Link>
                 </div>
                 <div className="flex-none gap-2">

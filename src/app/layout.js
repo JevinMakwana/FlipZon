@@ -9,7 +9,7 @@ import { SessionProvider } from './SessionProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Sanivari - Bet on price',
+  title: 'FlipZon - Bet on price',
   description: 'Bet on price',
 }
 

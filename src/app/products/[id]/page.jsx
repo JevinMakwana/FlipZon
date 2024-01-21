@@ -18,7 +18,7 @@ const getProduct = cache(async (id)=>{
 export async function generateMetadata({params: {id}}){
     const prod = await getProduct(id);
     return {
-        title: prod.name + "-Sanivari",
+        title: prod.name + "-FlipZon",
         description: prod.description,
         openGraph: {
             image: [{url: prod.imageUrl}]

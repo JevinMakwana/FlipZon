@@ -26,8 +26,15 @@ export async function generateMetadata({params: {id}}){
     }
 }
 
+
+
 export default async function ProductPage({params: {id}}){
     const res = await getProduct(id);
+    const convertUrlsToLinks = (text) => {
+        return text.replace(/(https?:\/\/\S+)/g, '<a href="$1" class="text-purple-600 underline underline-offset-2" target="_blank">LINK</a>');
+    };
+    
+
     return(
         <div className="flex flex-col lg:flex-row lg:items-center gap-4">
             <Image
@@ -41,7 +48,8 @@ export default async function ProductPage({params: {id}}){
             <div>
                 <h1 className="text-3xl font-bold">{res.name}</h1>
                 <span className="badge mt-4">₹ {res.price}</span>
-                <p className="py-6">{res.description}</p>
+                <p dangerouslySetInnerHTML={{ __html: convertUrlsToLinks(res.description) }} />
+
                 <AddToCartButton productId={res.id} incrementProductQuantity={incrementProductQuantity} />
             </div>
         </div>

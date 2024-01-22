@@ -23,13 +23,13 @@ export default async function Home({ searchParams: { page = "1"} }) {
     skip: (currentPage-1) * pageSize + (currentPage===1?0:heroItemCount),
     take: pageSize+ (currentPage === 1 ? heroItemCount : 0),
   })
-
   const isNew = ((Date.now() - new Date(products[0].createdAt).getTime()) < (1000*60*60*24));
+  const convertUrlsToLinks = (text) => { return text.replace(/(https?:\/\/\S+)/g, '<a href="$1" class="text-purple-600 underline underline-offset-2" target="_blank">LINK</a>')};
   return (
     <div className='flex flex-col items-center'>
       {currentPage === 1 &&
         <div className='hero rounded-xl bg-base-300'>
-          <div className='hero-content flex-col lg:flex-row'>
+          <div className='hero-content flex-col lg:flex-row xl:mr-[43%]'>
             <Image 
               src={products[0].imageUrl}
               alt={products[0].name}
@@ -43,7 +43,7 @@ export default async function Home({ searchParams: { page = "1"} }) {
                 {isNew && <><div className="badge badge-secondary align-middle">NEW</div><br/></>}
                 {products[0].name} 
               </h1>
-              <p className="py-6">{products[0].description}</p>
+              <p dangerouslySetInnerHTML={{ __html: convertUrlsToLinks(products[0].description) }} className='my-3' />
               <Link href={"/products/" + products[0].id} className='btn-primary btn'>Check it now</Link>
             </div>
           </div>
